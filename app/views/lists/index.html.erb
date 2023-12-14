@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>All Lists</h1>
+
+<div id="lists">
+  <table class="box">
+    <thead>
+        <tr>
+          <th scope="col"> Name List </th>
+          <th> -- </th>
+          <th scope="col"> Status </th>
+        </tr>
+    </thead>
+  </table> 
+  <% @lists.each do |list| %>
+    <%= render list %>
+    <p class=list_status>
+      <%= link_to list.name, [list] %>
+      
+      <%= list.status %> 
+    </p>
+  <% end %>
+
+</div>
+
+
+<%= link_to "New list", new_list_path %>

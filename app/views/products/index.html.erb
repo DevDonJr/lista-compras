@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Produtos</h1>
+
+<%= form_for @list do |f| %>
+  <%= hidden_field_tag 'list_id', @list.id %>
+  <% @list.products.each do |product| %>
+    <%= check_box_tag "list[product_ids][]", product.id, product.purchased %>
+    <%= product.name %> 
+    
+    <%= link_to "Show",[@list, product] %>
+    <br>
+  <% end %>
+  <%= f.submit "Salvar" %>
+<% end %>
+
+  <br>
+<%= link_to "Novo Produto", new_list_product_path(@list) %>
